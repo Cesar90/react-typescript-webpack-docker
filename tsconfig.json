@@ -12,6 +12,11 @@
         "allowJs": true,
         //
         "baseUrl": ".",
+        "paths": {
+            "*": [
+                "./src/*"
+            ]
+        },
         "moduleResolution": "node",
         //https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file
         // esModuleInterop allows you to work with packages that use
