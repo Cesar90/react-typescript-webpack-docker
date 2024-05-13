@@ -6,7 +6,7 @@ const MainPage = () => {
         <div>
             {t('Main page')}
         </div>
-    )
-}
+    );
+};
 
-export default MainPage
+export default MainPage;

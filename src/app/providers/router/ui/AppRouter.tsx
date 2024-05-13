@@ -1,29 +1,27 @@
-import { Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { routeConfig } from 'shared/config/routeConfig/routeConfig'
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 
-const AppRouter = () => {
-    return (
-        <Suspense fallback={<div>Loading....</div>}>
-            <Routes>
-                {/* <Route path={`/about`} element={<AboutPage />} />
+const AppRouter = () => (
+    <Suspense fallback={<div>Loading....</div>}>
+        <Routes>
+            {/* <Route path={`/about`} element={<AboutPage />} />
                 <Route path={`/`} element={<MainPage />} /> */}
-                {Object.values(routeConfig).map(({ element, path }) => (
-                    <Route
-                        key={path}
-                        path={path}
-                        element={(
-                            <Suspense fallback={<div>Loading...</div>}>
-                                <div className="page-wrapper">
-                                    {element}
-                                </div>
-                            </Suspense>
-                        )}
-                    />
-                ))}
-            </Routes>
-        </Suspense>
-    )
-}
+            {Object.values(routeConfig).map(({ element, path }) => (
+                <Route
+                    key={path}
+                    path={path}
+                    element={(
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <div className="page-wrapper">
+                                {element}
+                            </div>
+                        </Suspense>
+                    )}
+                />
+            ))}
+        </Routes>
+    </Suspense>
+);
 
-export default AppRouter
+export default AppRouter;

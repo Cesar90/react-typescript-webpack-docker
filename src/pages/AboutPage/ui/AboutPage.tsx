@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
 function AboutPage() {
     const { t } = useTranslation();
@@ -7,7 +7,7 @@ function AboutPage() {
         <div>
             {t('About us')}
         </div>
-    )
+    );
 }
 
-export default AboutPage
+export default AboutPage;
