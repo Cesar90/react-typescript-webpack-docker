@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import './styles/index.scss';
@@ -8,6 +8,12 @@ import { AppRouter } from './providers/router';
 
 const App = () => {
     const { theme } = useTheme();
+
+    useEffect(() => {
+        if (Math.random() < 0.5) {
+            throw new Error();
+        }
+    }, [])
 
     return (
         <div className={classNames('app', { hovered: true, selected: true }, [theme, 'cls2', 'cls3'])}>
