@@ -6,18 +6,19 @@
         // This only means that in such situations, the developer must explicitly write any,
         "noImplicitAny": true,
         "module": "ESNext",
+        // What spec do we compile to: to support most browsers
         "target": "es5",
         "jsx": "react-jsx",
         // The compiler will process not only TS files, but also JS files
         "allowJs": true,
-        //
+        "moduleResolution": "node",
+        // For absolute import
         "baseUrl": ".",
         "paths": {
             "*": [
                 "./src/*"
             ]
         },
-        "moduleResolution": "node",
         //https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file
         // esModuleInterop allows you to work with packages that use
         // common js as with regular package using import (require() module.export) = common js
@@ -40,4 +41,9 @@
             "module": "CommonJS"
         }
     },
+    "include": [
+        "./config/jest/setupTest.ts",
+        "./**/*.ts",
+        "./**/*.tsx"
+    ]
 }
