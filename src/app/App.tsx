@@ -9,12 +9,6 @@ import { AppRouter } from './providers/router';
 const App = () => {
     const { theme } = useTheme();
 
-    useEffect(() => {
-        if (Math.random() < 0.5) {
-            throw new Error();
-        }
-    }, [])
-
     return (
         <div className={classNames('app', { hovered: true, selected: true }, [theme, 'cls2', 'cls3'])}>
             <Suspense fallback="">
