@@ -23,8 +23,8 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false,
-            analyzerHost: '0.0.0.0'
+            analyzerHost: '0.0.0.0',
         }));
     }
-    return plugins
+    return plugins;
 }
