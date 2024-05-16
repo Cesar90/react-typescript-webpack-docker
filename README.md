@@ -32,6 +32,11 @@ docker-compose run --rm frontend sh -c "npm run test:unit classNames.test.ts"
 docker-compose run -p 8888:8888 --rm frontend sh -c "npm run build:dev"
 ```
 
+#### Run Storybook
+```bash
+docker-compose run -p 6006:6006 --rm frontend sh -c "npm run storybook"
+```
+
 ## Typescript
 ### Fixing issue of types in VS Code
 
