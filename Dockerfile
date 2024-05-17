@@ -1,5 +1,16 @@
 # Install dependencies only when needed
 FROM node:18-alpine3.15
+
+# COPY install_chromium.sh        /usr/local/bin/install_chromium.sh
+# COPY install_graphicsmagick.sh  /usr/local/bin/install_graphicsmagick.sh
+
+# RUN apk --no-cache update && apk --no-cache upgrade
+# RUN sh /usr/local/bin/install_chromium.sh
+# RUN sh /usr/local/bin/install_graphicsmagick.sh
+
+# ENV CHROME_BIN /usr/bin/chromium-browser
+# ENV LIGHTHOUSE_CHROMIUM_PATH /usr/bin/chromium-browser
+
 # Build step
 # 1. copy package.json and package-lock.json to /app dir
 RUN mkdir /app
