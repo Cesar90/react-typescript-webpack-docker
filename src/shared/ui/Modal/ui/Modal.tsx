@@ -1,8 +1,10 @@
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import React, {
+    ReactNode, useCallback, useEffect, useRef, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
-import cls from './Modal.module.scss';
 import { useTheme } from 'app/providers/ThemeProvider';
+import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string;
@@ -18,7 +20,7 @@ export const Modal = (props: ModalProps) => {
         className,
         children,
         isOpen,
-        onClose
+        onClose,
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
@@ -37,7 +39,7 @@ export const Modal = (props: ModalProps) => {
 
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
-    }
+    };
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
@@ -53,14 +55,14 @@ export const Modal = (props: ModalProps) => {
         return () => {
             clearTimeout(timeRef.current);
             window.removeEventListener('keydown', onKeyDown);
-        }
-    }, [isOpen])
+        };
+    }, [isOpen, onKeyDown]);
 
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
         // [cls[theme]]: true,
-    }
+    };
 
     return (
         <Portal>
@@ -72,5 +74,5 @@ export const Modal = (props: ModalProps) => {
                 </div>
             </div>
         </Portal>
-    )
-}
+    );
+};

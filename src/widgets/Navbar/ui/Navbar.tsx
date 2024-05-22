@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import cls from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useCallback, useState } from 'react';
 import { Modal } from 'shared/ui/Modal';
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;
@@ -37,5 +37,5 @@ export const Navbar = ({ className }: NavbarProps) => {
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur nihil voluptatem, rem eligendi dolore quam quae ducimus nobis voluptatum deleniti illum libero at, cumque molestias. Labore quas ipsum sapiente quidem!
             </Modal>
         </div>
-    )
+    );
 };
