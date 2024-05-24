@@ -37,6 +37,16 @@ docker-compose run -p 8888:8888 --rm frontend sh -c "npm run build:dev"
 docker-compose run -p 6006:6006 --rm frontend sh -c "npm run storybook"
 ```
 
+#### Run Json Server only
+```bash
+docker-compose run -p 8000:8000 --rm frontend sh -c "npm run json-server" 
+```
+
+#### Run Json Server with Auth
+```bash
+docker-compose run -p 8000:8000 --rm frontend sh -c "npm run start:dev:server"
+```
+
 ## Typescript
 ### Fixing issue of types in VS Code
 
