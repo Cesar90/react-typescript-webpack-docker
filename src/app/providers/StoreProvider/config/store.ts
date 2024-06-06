@@ -1,5 +1,4 @@
 import { configureStore, DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
-
 import { counterReducer } from 'entities/counter';
 import { userReducer } from 'entities/User';
 import { loginReducer } from 'features/AuthByUsername';
@@ -31,3 +30,6 @@ export function createReduxStore(
 
     return store;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+// export const useAppDispatch = () => useDispatch<AppDispatch>()

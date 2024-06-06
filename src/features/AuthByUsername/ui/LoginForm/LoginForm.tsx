@@ -6,6 +6,7 @@ import { Input } from 'shared/ui/Input';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { ReduxStoreWithManager } from 'app/providers/StoreProvider/config/StateSchema';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -17,14 +18,15 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 
 export interface LoginFormProps {
     className?: string;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
     loginForm: loginReducer,
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
-    const dispatch = useDispatch();
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
+    const dispatch = useAppDispatch();
     // const store = useStore() as ReduxStoreWithManager;
     // const {
     //     username, password, error, isLoading,
@@ -59,9 +61,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         [dispatch],
     );
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [onSuccess, dispatch, password, username]);
 
     return (
         <DynamicModuleLoader
@@ -83,7 +88,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
                 <Input
                     type="text"
                     className={cls.input}
-                    placeholder="Email"
+                    placeholder="Password"
                     onChange={onChangePassword}
                     value={password}
                 />

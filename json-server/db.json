@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "Cesar",
+    "lastname": "Cordero",
+    "age": 22,
+    "currency": "USD",
+    "country": "Nicaragua",
+    "city": "Managua",
+    "username": "admin",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQF7kZ-G8bCD6Q/profile-displayphoto-shrink_200_200/0/1566396514206?e=1723075200&v=beta&t=9wSwBk55DWcBZY8EOdVmWoG9PSY_xCkh5YsRe1YB7yE"
+  }
 }
