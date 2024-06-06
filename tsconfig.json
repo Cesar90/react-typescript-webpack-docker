@@ -11,6 +11,7 @@
         "jsx": "react-jsx",
         // The compiler will process not only TS files, but also JS files
         "allowJs": true,
+        "strict": true,
         "moduleResolution": "node",
         // For absolute import
         "baseUrl": ".",
