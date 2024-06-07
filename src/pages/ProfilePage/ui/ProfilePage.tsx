@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ProfileCard, profileReducer } from 'entities/Profile';
+import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
@@ -13,7 +13,7 @@ const ProfilePage = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        // dispatch(fetchProfileData())
+        dispatch(fetchProfileData());
     }, [dispatch]);
 
     return (

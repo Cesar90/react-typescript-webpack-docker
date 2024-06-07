@@ -6,9 +6,9 @@ export {
 } from './model/slice/profileSlice';
 
 export {
-    fetchProfileData
-} from './model/services/fetchProfileData/fetchProfileData'
+    fetchProfileData,
+} from './model/services/fetchProfileData/fetchProfileData';
 
 export {
-    ProfileCard
-} from './ui/ProfileCard/ProfileCard'
+    ProfileCard,
+} from './ui/ProfileCard/ProfileCard';

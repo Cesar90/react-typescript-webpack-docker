@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Profile.module.scss';
 import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
 import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
 import { Text } from 'shared/ui/Text';
 import { Input } from 'shared/ui/Input';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import cls from './Profile.module.scss';
 
 interface ProfileCardProps {
     className?: string;
@@ -26,7 +26,8 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
                 <Text title={t('Firstname')} />
                 <Button
                     className={cls.editBtn}
-                    theme={ThemeButton.OUTLINE}>
+                    theme={ThemeButton.OUTLINE}
+                >
                     {t('Edit Profile')}
                 </Button>
             </div>
@@ -43,5 +44,5 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
                 />
             </div>
         </div>
-    )
-}
+    );
+};
