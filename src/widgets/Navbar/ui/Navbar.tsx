@@ -32,7 +32,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 className={cls.links}
                 onClick={onShowModal}
             >
-                Sing in
+                Login
             </Button>
             {isAuthModal && (
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

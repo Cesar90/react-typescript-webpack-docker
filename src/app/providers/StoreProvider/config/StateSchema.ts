@@ -13,7 +13,7 @@ export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   loginForm: LoginSchema;
-  profile?: ProfileSchema
+  profile: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -36,4 +36,5 @@ export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;
   dispatch?: Dispatch;
+  state: StateSchema
 }
