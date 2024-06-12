@@ -68,9 +68,9 @@ describe('profileSlice.test', () => {
         };
         expect(profileReducer(
             state as ProfileSchema,
-            updateProfileData.pending,
+            updateProfileData.fulfilled(data, '')
         )).toEqual({
-            isLoading: true,
+            isLoading: false,
             validateErrors: undefined,
             readonly: true,
             validateError: undefined,
