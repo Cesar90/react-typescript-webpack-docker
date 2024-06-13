@@ -25,7 +25,7 @@ COPY . .
 EXPOSE 3000
 # 6. Run the app
 CMD ["npm", "run", "start"]
-
+# CMD ["npm", "run", "start:dev"]
 # Create and define the node_modules's cache directory.
 # RUN mkdir /usr/src/cache
 # WORKDIR /usr/src/cache
