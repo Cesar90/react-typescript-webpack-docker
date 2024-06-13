@@ -1,26 +1,35 @@
-import { Suspense, memo, useMemo } from 'react';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
-import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { Suspense, memo, useCallback } from 'react';
+import { Route, Router, Routes } from 'react-router-dom';
+import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'shared/ui/PageLoader/ui/PageLoader';
+import { RequireAuth } from './RequireAuth';
 
 const AppRouter = () => {
-    const isAuth = useSelector(getUserAuthData);
+    const renderWithWrapper = useCallback((route: AppRoutesProps) => {
+        const element = (
+            <Suspense fallback={<PageLoader />}>
+                <div className="page-wrapper">
+                    {route.element}
+                </div>
+            </Suspense>
+        );
 
-    const routes = useMemo(() => Object.values(routeConfig).filter((route) => {
-        if (route.authOnly && !isAuth) {
-            return false;
-        }
-        return true;
-    }), [isAuth]);
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+            />
+        );
+    }, []);
 
     return (
         <Routes>
+            {Object.values(routeConfig).map(renderWithWrapper)}
             {/* <Route path={`/about`} element={<AboutPage />} />
                 <Route path={`/`} element={<MainPage />} /> */}
             {/* {Object.values(routeConfig).map(({ element, path }) => ( */}
-            {routes.map(({ element, path }) => (
+            {/* {routes.map(({ element, path }) => (
                 <Route
                     key={path}
                     path={path}
@@ -32,7 +41,7 @@ const AppRouter = () => {
                         </Suspense>
                     )}
                 />
-            ))}
+            ))} */}
         </Routes>
     );
 };
