@@ -1,5 +1,5 @@
-import { memo } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { memo } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -12,7 +12,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             ArticlesPage
         </div>
-    )
-}
+    );
+};
 
 export default memo(ArticlesPage);
