@@ -27,4 +27,10 @@ export const SidebarItemsList: SidebarItemType[] = [
         text: 'Profile',
         authOnly: true,
     },
+    {
+        path: RoutePath.articles,
+        Icon: MainIcon,
+        text: 'Articles',
+        authOnly: true,
+    },
 ];
