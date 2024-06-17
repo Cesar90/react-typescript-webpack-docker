@@ -8,12 +8,14 @@ import { CounterSchema } from 'entities/counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
+import { ArticleDetailsSchema } from 'entities/Articles';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   loginForm: LoginSchema;
-  profile: ProfileSchema
+  profile: ProfileSchema;
+  articleDetails: ArticleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
