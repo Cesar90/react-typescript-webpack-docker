@@ -1,5 +1,24 @@
+# First Stage
+FROM node:18-alpine3.15 AS installer
+WORKDIR /app
+
+# Copying package.json & package-lock.json.
+# Why we have used * symbol? Check this -> https://docs.docker.com/engine/reference/builder/#copy
+COPY package*.json .
+RUN npm install
+
+# Second Stage
+# Using Alpine images to curb down the image size
+FROM node:18-alpine3.15 as release
+WORKDIR /app
+COPY --from=installer /app /app
+COPY . .
+EXPOSE 3000
+CMD ["npm", "run", "start"]
+
+
 # Install dependencies only when needed
-FROM node:18-alpine3.15
+# FROM node:18-alpine3.15
 
 # COPY install_chromium.sh        /usr/local/bin/install_chromium.sh
 # COPY install_graphicsmagick.sh  /usr/local/bin/install_graphicsmagick.sh
@@ -13,18 +32,18 @@ FROM node:18-alpine3.15
 
 # Build step
 # 1. copy package.json and package-lock.json to /app dir
-RUN mkdir /app
-COPY package*.json /app
+# RUN mkdir /app
+# COPY package*.json /app
 # 2. Change working directory to newly created app dir
-WORKDIR /app
+# WORKDIR /app
 # 3 . Install dependencies
-RUN npm install
+# RUN npm install
 # 4. Copy the source code to /app dir
-COPY . .
+# COPY . .
 # 5. Expose port 3000 on the container
-EXPOSE 3000
+# EXPOSE 3000
 # 6. Run the app
-CMD ["npm", "run", "start"]
+# CMD ["npm", "run", "start"]
 # CMD ["npm", "run", "start:dev"]
 # Create and define the node_modules's cache directory.
 # RUN mkdir /usr/src/cache

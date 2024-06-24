@@ -1,6 +1,6 @@
 export enum ArticleBlockType {
     CODE = 'CODE',
-    IMAGE = 'IMAGe',
+    IMAGE = 'IMAGE',
     TEXT = 'TEXT'
 }
 
