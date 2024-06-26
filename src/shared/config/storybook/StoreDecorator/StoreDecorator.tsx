@@ -4,6 +4,8 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailsReducer } from 'entities/Articles';
 import { profileReducer } from 'entities/Profile';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice';
+import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 // const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
@@ -11,6 +13,8 @@ const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
+    addCommentForm: addCommentFormReducer,
+    articleDetailsComments: articleDetailsCommentsReducer,
 };
 
 export const StoreDecorator = (

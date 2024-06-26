@@ -13,6 +13,7 @@ const data = {
     name: 'Cesar',
     city: 'Managua',
     currency: Currency.USD,
+    id: '1',
 };
 
 describe('updateProfileData.test', () => {

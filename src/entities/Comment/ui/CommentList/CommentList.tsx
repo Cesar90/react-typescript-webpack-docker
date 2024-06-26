@@ -12,6 +12,17 @@ interface CommentListProps {
 
 export const CommentList = (props: CommentListProps) => {
     const { className, isLoading, comments } = props;
+
+    if (isLoading) {
+        return (
+            <div className={classNames('', {}, [className])}>
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+            </div>
+        );
+    }
+
     return (
         <div className={classNames('', {}, [className])}>
             {comments?.length ? comments.map((comment) => (

@@ -102,6 +102,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "My First Comment",
+      "id": "Kor_a_F"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Comment just for test",
+      "id": "0XR2MEZ"
     }
   ],
   "users": [
@@ -120,14 +132,28 @@
       "avatar": "https://media.licdn.com/dms/image/C4D03AQF7kZ-G8bCD6Q/profile-displayphoto-shrink_200_200/0/1566396514206?e=1723075200&v=beta&t=9wSwBk55DWcBZY8EOdVmWoG9PSY_xCkh5YsRe1YB7yE"
     }
   ],
-  "profile": {
-    "name": "Cesarfasdfasdfaf",
-    "lastname": "Cordero",
-    "age": 22,
-    "currency": "USD",
-    "country": "Nicaragua",
-    "city": "Managua",
-    "username": "admin",
-    "avatar": "https://media.licdn.com/dms/image/C4D03AQF7kZ-G8bCD6Q/profile-displayphoto-shrink_200_200/0/1566396514206?e=1723075200&v=beta&t=9wSwBk55DWcBZY8EOdVmWoG9PSY_xCkh5YsRe1YB7yE"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "name": "This has changed",
+      "lastname": "Cordero",
+      "age": 22,
+      "currency": "USD",
+      "country": "Nicaragua",
+      "city": "Managua",
+      "username": "admin",
+      "avatar": "https://media.licdn.com/dms/image/C4D03AQF7kZ-G8bCD6Q/profile-displayphoto-shrink_200_200/0/1566396514206?e=1723075200&v=beta&t=9wSwBk55DWcBZY8EOdVmWoG9PSY_xCkh5YsRe1YB7yE"
+    },
+    {
+      "id": "2",
+      "name": "Cesarfasdfasdfaf",
+      "lastname": "Cordero",
+      "age": 22,
+      "currency": "USD",
+      "country": "Nicaragua",
+      "city": "Esteli",
+      "username": "ccordero",
+      "avatar": "https://media.licdn.com/dms/image/C4D03AQF7kZ-G8bCD6Q/profile-displayphoto-shrink_200_200/0/1566396514206?e=1723075200&v=beta&t=9wSwBk55DWcBZY8EOdVmWoG9PSY_xCkh5YsRe1YB7yE"
+    }
+  ]
 }
