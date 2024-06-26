@@ -109,13 +109,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://media.licdn.com/dms/image/C4D03AQF7kZ-G8bCD6Q/profile-displayphoto-shrink_200_200/0/1566396514206?e=1723075200&v=beta&t=9wSwBk55DWcBZY8EOdVmWoG9PSY_xCkh5YsRe1YB7yE"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://media.licdn.com/dms/image/C4D03AQF7kZ-G8bCD6Q/profile-displayphoto-shrink_200_200/0/1566396514206?e=1723075200&v=beta&t=9wSwBk55DWcBZY8EOdVmWoG9PSY_xCkh5YsRe1YB7yE"
     }
   ],
   "profile": {
