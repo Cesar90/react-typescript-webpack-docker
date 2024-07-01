@@ -7,14 +7,17 @@ import {
 } from 'entities/Articles';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page';
 import cls from './ArticlesPage.module.scss';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import {
-    getArticlePageError,
     getArticlePageIsLoading,
     getArticlesPageView,
 } from '../../model/selectors/articlespageSelectors';
+import {
+    fetchNextArticlesPage,
+} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 
 interface ArticlesPageProps {
     className?: string;
@@ -166,21 +169,29 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlePageIsLoading);
-    const error = useSelector(getArticlePageError);
     const view = useSelector(getArticlesPageView);
 
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlePageActions.setView(view));
     }, [dispatch]);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
     useInitialEffect(() => {
-        dispatch(fetchArticleList());
         dispatch(articlePageActions.initState());
+        dispatch(fetchArticleList({
+            page: 1,
+        }));
     });
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            >
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 {/* <ArticleList articles={[article]} /> */}
                 <ArticleList
@@ -196,7 +207,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     // }
                     articles={articles}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

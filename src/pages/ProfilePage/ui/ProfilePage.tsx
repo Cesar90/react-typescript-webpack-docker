@@ -20,6 +20,7 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -98,7 +99,7 @@ const ProfilePage = () => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div>
+            <Page>
                 <ProfilePageHeader />
                 {validateErros?.length && validateErros.map((err) => (
                     <Text
@@ -121,7 +122,7 @@ const ProfilePage = () => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

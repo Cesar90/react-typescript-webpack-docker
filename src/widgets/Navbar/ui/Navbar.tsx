@@ -1,10 +1,9 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { memo, useCallback, useState } from 'react';
-import { Modal } from 'shared/ui/Modal';
 import { LoginModal } from 'features/AuthByUsername';
+import { getUserAuthData, userActions } from 'entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -13,7 +12,8 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
-    const { t } = useTranslation();
+    const authData = useSelector(getUserAuthData);
+    const dispatch = useDispatch();
 
     const onCloseModal = useCallback(() => {
         // setIsAuthModal((prev) => !prev);
@@ -25,8 +25,26 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         setIsAuthModal(true);
     }, []);
 
+    const onLogout = useCallback(() => {
+        dispatch(userActions.logout());
+    }, [dispatch]);
+
+    if (authData) {
+        return (
+            <header className={classNames(cls.Navbar, {}, [className])}>
+                <Button
+                    theme={ThemeButton.CLEAR_INVERTED}
+                    className={cls.links}
+                    onClick={onLogout}
+                >
+                    Logout
+                </Button>
+            </header>
+        );
+    }
+
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             <Button
                 theme={ThemeButton.CLEAR_INVERTED}
                 className={cls.links}
@@ -40,6 +58,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             {/* <Modal isOpen={isAuthModal} onClose={onCloseModal}>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur nihil voluptatem, rem eligendi dolore quam quae ducimus nobis voluptatum deleniti illum libero at, cumque molestias. Labore quas ipsum sapiente quidem!
             </Modal> */}
-        </div>
+        </header>
     );
 });
