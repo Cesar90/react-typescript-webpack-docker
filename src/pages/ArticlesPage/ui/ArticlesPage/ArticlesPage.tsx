@@ -7,7 +7,7 @@ import {
 } from 'entities/Articles';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import cls from './ArticlesPage.module.scss';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';

@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from 'entities/Articles';
 import { Text } from 'shared/ui/Text';
 import { CommentList } from 'entities/Comment';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { AddCommentForm } from 'features/addCommentForm';

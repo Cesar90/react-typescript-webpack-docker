@@ -8,6 +8,7 @@ import { loginReducer } from 'features/AuthByUsername';
 import { $api } from 'shared/api/api';
 import { profileReducer } from 'entities/Profile';
 import { articleDetailsReducer } from 'entities/Articles';
+import { uiReducer } from 'features/UI';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -23,6 +24,7 @@ export function createReduxStore(
         loginForm: loginReducer,
         profile: profileReducer,
         articleDetails: articleDetailsReducer,
+        ui: uiReducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);
