@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text';
 import { TextSize } from 'shared/ui/Text/ui/Text';
@@ -11,6 +11,7 @@ interface ArticleListProps {
     className?: string;
     articles: Article[];
     isLoading?: boolean;
+    target?: HTMLAttributeAnchorTarget;
     view?: ArticleView;
 }
 
@@ -27,6 +28,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className,
         articles,
         view = ArticleView.SMALL,
+        target,
         isLoading,
     } = props;
 
@@ -41,7 +43,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     if (!isLoading && !articles.length) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                <Text size={TextSize.L} title="There not data" />
+                <Text size={TextSize.L} title="There are not data" />
             </div>
         );
     }
@@ -52,6 +54,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             view={view}
             className={cls.card}
             key={article.id}
+            target={target}
         />
     );
 

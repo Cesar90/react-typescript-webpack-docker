@@ -9,10 +9,20 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
 import { ArticleDetailsSchema } from 'entities/Articles';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import {
+    ArticleDetailsCommentsSchema,
+    ArticleDetailsPageShema,
+    articleDetailsRecommendationSchema,
+} from 'pages/ArticleDetailsPage';
 import { AddCommentFormShema } from 'features/addCommentForm';
 import { ArticlesPageShema } from 'pages/ArticlesPage';
 import { UISchema } from 'features/UI';
+
+// loginForm: loginReducer,
+// profile: profileReducer,
+// articleDetails: articleDetailsReducer,
+// addCommentForm: addCommentFormReducer,
+// articleDetailsPage: articleDetailPageReducer
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -21,9 +31,11 @@ export interface StateSchema {
   loginForm: LoginSchema;
   profile: ProfileSchema;
   articleDetails: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
+  // articleDetailsComments?: ArticleDetailsCommentsSchema;
+  // articleDetailsRecomentations?: articleDetailsRecommendationSchema;
   addCommentForm?: AddCommentFormShema;
-  articlePage?: ArticlesPageShema
+  articlePage?: ArticlesPageShema;
+  articleDetailsPage?: ArticleDetailsPageShema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
