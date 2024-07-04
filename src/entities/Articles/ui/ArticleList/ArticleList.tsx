@@ -1,5 +1,7 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text } from 'shared/ui/Text';
+import { TextSize } from 'shared/ui/Text/ui/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -35,6 +37,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
     //         </div>
     //     );
     // }
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <Text size={TextSize.L} title="There not data" />
+            </div>
+        );
+    }
 
     const renderArticle = (article: Article) => (
         <ArticleListItem

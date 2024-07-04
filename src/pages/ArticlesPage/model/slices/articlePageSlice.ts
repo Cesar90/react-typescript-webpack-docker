@@ -6,6 +6,8 @@ import {
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entities/Articles';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { ArticleSortField, ArticleType } from 'entities/Articles/model/types/article';
+import { SortOrder } from 'shared/types';
 import { ArticlesPageShema } from '../types/articlePageSchema';
 import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList';
 
@@ -30,6 +32,11 @@ const articlePageSlice = createSlice({
         page: 1,
         hasMore: true,
         _inited: false,
+        limit: 9,
+        sort: ArticleSortField.CREATED,
+        search: '',
+        order: 'asc',
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -38,6 +45,18 @@ const articlePageSlice = createSlice({
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
+        },
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
+            state.order = action.payload;
+        },
+        setSort: (state, action: PayloadAction<ArticleSortField>) => {
+            state.sort = action.payload;
+        },
+        setType: (state, action: PayloadAction<ArticleType>) => {
+            state.type = action.payload;
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload;
         },
         initState: (state) => {
             const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
@@ -51,12 +70,22 @@ const articlePageSlice = createSlice({
             .addCase(fetchArticleList.pending, (state, action) => {
                 state.error = undefined;
                 state.isLoading = true;
+                if (action.meta.arg.replace) {
+                    articleAdapter.removeAll(state);
+                }
             })
-            .addCase(fetchArticleList.fulfilled, (state, action: PayloadAction<Article[]>) => {
+            // .addCase(fetchArticleList.fulfilled, (state, action: PayloadAction<Article[]>) => {
+            .addCase(fetchArticleList.fulfilled, (state, action) => {
                 state.isLoading = false;
                 // articleAdapter.setAll(state, action.payload);
-                articleAdapter.addMany(state, action.payload);
-                state.hasMore = action.payload.length > 0;
+                // state.hasMore = action.payload.length > 0;
+                state.hasMore = action.payload.length >= state.limit;
+
+                if (action.meta.arg.replace) {
+                    articleAdapter.setAll(state, action.payload);
+                } else {
+                    articleAdapter.addMany(state, action.payload);
+                }
             })
             .addCase(fetchArticleList.rejected, (state, action) => {
                 state.isLoading = false;
