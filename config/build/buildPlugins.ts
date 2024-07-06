@@ -28,9 +28,9 @@ export function buildPlugins({
             patterns: [
                 // { from: 'source', to: 'dest' },
                 // { from: 'other', to: 'public' },
-                { from: paths.locales, to: paths.buildLocales }
-            ]
-        })
+                { from: paths.locales, to: paths.buildLocales },
+            ],
+        }),
     ];
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin());
