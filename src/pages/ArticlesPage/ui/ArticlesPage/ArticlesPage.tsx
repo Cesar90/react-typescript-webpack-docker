@@ -9,7 +9,6 @@ import {
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page';
-import cls from './ArticlesPage.module.scss';
 import { articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import {
     getArticlePageIsLoading,
@@ -21,6 +20,7 @@ import {
 } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
     className?: string;

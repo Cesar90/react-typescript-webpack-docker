@@ -1,5 +1,5 @@
-import { useCallback, useMemo } from 'react';
-import { ArticleType } from 'entities/Articles/model/types/article';
+import { memo, useCallback, useMemo } from 'react';
+import { ArticleType } from '../../model/types/article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { TabItem, Tabs } from 'shared/ui/Tabs';
 
@@ -9,7 +9,7 @@ interface ArticleTypeTabsProps {
     onChangeType: (type: ArticleType) => void;
 }
 
-export const ArticleTypeTabs = (props: ArticleTypeTabsProps) => {
+export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
     const { className, value, onChangeType } = props;
 
     const typeTabs = useMemo<TabItem[]>(() => [
@@ -43,4 +43,4 @@ export const ArticleTypeTabs = (props: ArticleTypeTabsProps) => {
             className={classNames('', {}, [className])}
         />
     );
-};
+});
