@@ -5,6 +5,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { getArticleDetailsData } from 'entities/Articles';
+import { HStack } from 'shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
@@ -27,7 +28,7 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
     }, [article?.id, navigate]);
 
     return (
-        <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+        <HStack justify="between" max className={classNames('', {}, [className])}>
             <Button
                 theme={ThemeButton.OUTLINE}
                 onClick={onBackToList}
@@ -43,6 +44,6 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
                     Edit
                 </Button>
             )}
-        </div>
+        </HStack>
     );
 };
