@@ -47,6 +47,11 @@ docker-compose run -p 8000:8000 --rm frontend sh -c "npm run json-server"
 docker-compose run -p 8000:8000 --rm frontend sh -c "npm run start:dev:server"
 ```
 
+#### Generate template of `features`, `entities`, `pages`
+```bash
+ docker-compose run --rm frontend sh -c "npm run generate:slice features testFeature"
+```
+
 ## Typescript
 ### Fixing issue of types in VS Code
 
