@@ -6,9 +6,10 @@ import { counterReducer } from 'entities/counter';
 import { userReducer } from 'entities/User';
 import { loginReducer } from 'features/AuthByUsername';
 import { $api } from 'shared/api/api';
-import { profileReducer } from 'entities/Profile';
 import { articleDetailsReducer } from 'entities/Articles';
 import { uiReducer } from 'features/UI';
+import { rtkApi } from 'shared/api/rtkApi';
+import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -25,6 +26,7 @@ export function createReduxStore(
         profile: profileReducer,
         articleDetails: articleDetailsReducer,
         ui: uiReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);
@@ -44,7 +46,7 @@ export function createReduxStore(
             thunk: {
                 extraArgument: extraArg,
             },
-        }),
+        }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore

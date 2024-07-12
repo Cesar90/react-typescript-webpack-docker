@@ -40,5 +40,11 @@ export function buildPlugins({
             analyzerHost: '0.0.0.0',
         }));
     }
+
+    // plugins.push(new BundleAnalyzerPlugin({
+    //     openAnalyzer: true,
+    //     analyzerHost: '0.0.0.0',
+    // }));
+
     return plugins;
 }

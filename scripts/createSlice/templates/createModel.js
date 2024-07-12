@@ -36,7 +36,7 @@ module.exports = async (layer, sliceName) => {
                 schemaTypeTemplate(sliceName),
             );
         } catch (e) {
-            console.log('We didn't even know what type of structure', e);
+            console.log('We did not even know what type of structure', e);
         }
     };
 

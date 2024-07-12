@@ -123,7 +123,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     <List
                         height={height ?? 700}
                         rowCount={rowCount}
-                        rowHeight={isBig ? 700 : 330}
+                        rowHeight={isBig ? 850 : 330}
                         rowRenderer={rowRender}
                         width={width ? width - 80 : 700}
                         autoHeight
