@@ -1,5 +1,4 @@
-import { useCallback, useEffect, memo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useCallback, memo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
