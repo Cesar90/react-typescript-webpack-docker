@@ -28,7 +28,6 @@ export const profileSlice = createSlice({
                 ...state.form,
                 ...action.payload,
             };
-            console.log('state.form', state.form);
         },
     },
     extraReducers: (builder) => {
@@ -58,6 +57,7 @@ export const profileSlice = createSlice({
                 state.validateErrors = undefined;
             })
             .addCase(updateProfileData.rejected, (state, action) => {
+                console.log('updateProfileData.rejected trigger');
                 state.isLoading = false;
                 state.validateErrors = action.payload;
             });
