@@ -3,7 +3,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -19,6 +21,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
 
     const onCloseModal = useCallback(() => {
         // setIsAuthModal((prev) => !prev);
@@ -33,6 +37,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
     }, [dispatch]);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     if (authData) {
         return (
@@ -53,6 +59,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     direction="bottom left"
                     className={cls.dropdown}
                     items={[
+                        ...(isAdminPanelAvailable ? [{
+                            content: 'Admin Panel',
+                            href: RoutePath.admin_panel,
+                        }] : []),
                         {
                             content: 'Profile',
                             href: RoutePath.profile + authData.id,
