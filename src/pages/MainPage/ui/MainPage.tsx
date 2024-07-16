@@ -2,12 +2,14 @@ import { useTranslation } from 'react-i18next';
 import { ListBox } from 'shared/ui/ListBox';
 import { HStack } from 'shared/ui/Stack';
 import { Page } from 'widgets/Page';
+import { Counter } from 'entities/counter';
 
 const MainPage = () => {
     const { t } = useTranslation();
     return (
         <Page>
             {t('Main page')}
+            <Counter />
             <div>adasdasdf</div>
             <HStack>
                 <div>adasdasdf</div>

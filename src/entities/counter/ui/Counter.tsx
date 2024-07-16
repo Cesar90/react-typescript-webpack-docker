@@ -19,7 +19,6 @@ export const Counter = () => {
     return (
         <div>
             <h1 data-testid="value-title">
-                value =
                 {counterValue}
             </h1>
             <Button
