@@ -1,4 +1,4 @@
-export { AddCommentFormShema } from './model/types/addCommentForm';
+export type { AddCommentFormShema } from './model/types/addCommentForm';
 export {
     AddCommentFormAsync as AddCommentForm,
 } from './ui/AddCommentForm/AddCommentForm.async';

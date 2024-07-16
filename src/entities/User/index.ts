@@ -1,6 +1,7 @@
+import { UserRole } from './model/consts/userConsts';
 import { getUserAuthData } from './model/selectors/getUserAuthData';
 import { userReducer, userActions } from './model/slice/userSlice';
-import { UserSchema, User, UserRole } from './model/types/user';
+import type { UserSchema, User } from './model/types/user';
 
 export {
     getUserInited,
