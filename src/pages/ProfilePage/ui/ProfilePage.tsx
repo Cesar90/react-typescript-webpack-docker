@@ -20,9 +20,9 @@ const ProfilePage = () => {
     //         dispatch(fetchProfileData());
     //     }
     // }, [dispatch]);
-    if (!id) {
-        return <Text text="Profile id not found" />;
-    }
+    // if (!id) {
+    //     return <Text text="Profile id not found" />;
+    // }
 
     return (
         <Page>

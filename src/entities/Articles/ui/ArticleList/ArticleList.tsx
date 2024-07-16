@@ -104,6 +104,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     );
 
     return (
+        // @ts-ignore
         <WindowScroller
             // onScroll={() => console.log('scroll')}
             scrollElement={document.getElementById(PAGE_ID) as Element}
@@ -119,10 +120,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 // <AutoSizer disableHeight>
                 //     {({ width }) => (
                 <div
+                    // @ts-ignore
                     ref={registerChild}
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
                 >
                     {virtualized ? (
+                        // @ts-ignore
                         <List
                             height={height ?? 700}
                             rowCount={rowCount}
