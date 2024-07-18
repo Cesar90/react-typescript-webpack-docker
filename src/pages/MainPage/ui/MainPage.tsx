@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { ListBox } from 'shared/ui/ListBox';
+import { ListBox } from 'shared/ui/Popups/components/ListBox';
 import { HStack } from 'shared/ui/Stack';
 import { Page } from 'widgets/Page';
 import { Counter } from 'entities/counter';

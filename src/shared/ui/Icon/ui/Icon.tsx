@@ -3,14 +3,15 @@ import cls from './Icon.module.scss';
 
 interface IconProps {
     className?: string;
-    Svg: React.VFC<React.SVGProps<SVGSVGElement>>
+    Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
+    inverted?: boolean;
 }
 
 export const Icon = (props: IconProps) => {
-    const { className, Svg } = props;
+    const { className, Svg, inverted } = props;
 
     return (
-        <div className={classNames(cls.Icon, {}, [className])}>
+        <div className={classNames(inverted ? cls.inverted : cls.Icon, {}, [className])}>
             <Svg />
         </div>
     );
