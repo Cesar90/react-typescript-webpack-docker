@@ -2,14 +2,14 @@ import {
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { NavigateOptions, To } from 'react-router';
-import { counterReducer } from 'entities/counter';
-import { userReducer } from 'entities/User';
-import { loginReducer } from 'features/AuthByUsername';
-import { $api } from 'shared/api/api';
-import { articleDetailsReducer } from 'entities/Articles';
-import { uiReducer } from 'features/UI';
-import { rtkApi } from 'shared/api/rtkApi';
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
+import { counterReducer } from '@/entities/counter';
+import { userReducer } from '@/entities/User';
+import { loginReducer } from '@/features/AuthByUsername';
+import { $api } from '@/shared/api/api';
+import { articleDetailsReducer } from '@/entities/Articles';
+import { uiReducer } from '@/features/UI';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 

@@ -4,20 +4,20 @@ import {
 } from '@reduxjs/toolkit';
 import { CombinedState, Dispatch } from 'redux';
 import { AxiosInstance } from 'axios';
-import { CounterSchema } from 'entities/counter';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
-import { ArticleDetailsSchema } from 'entities/Articles';
+import { CounterSchema } from '@/entities/counter';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ArticleDetailsSchema } from '@/entities/Articles';
 import {
     ArticleDetailsCommentsSchema,
     ArticleDetailsPageShema,
     articleDetailsRecommendationSchema,
-} from 'pages/ArticleDetailsPage';
-import { AddCommentFormShema } from 'features/addCommentForm';
-import { ArticlesPageShema } from 'pages/ArticlesPage';
-import { UISchema } from 'features/UI';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ProfileSchema } from 'features/editableProfileCard';
+} from '@/pages/ArticleDetailsPage';
+import { AddCommentFormShema } from '@/features/addCommentForm';
+import { ArticlesPageShema } from '@/pages/ArticlesPage';
+import { UISchema } from '@/features/UI';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ProfileSchema } from '@/features/editableProfileCard';
 
 // loginForm: loginReducer,
 // profile: profileReducer,

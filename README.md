@@ -52,6 +52,11 @@ docker-compose run -p 8000:8000 --rm frontend sh -c "npm run start:dev:server"
  docker-compose run --rm frontend sh -c "npm run generate:slice features testFeature"
 ```
 
+#### Run ts-morph to change path of import with @
+```bash
+ docker-compose run --rm frontend sh -c "npx ts-node ./scripts/updateImports.ts"
+```
+
 ## Typescript
 ### Fixing issue of types in VS Code
 

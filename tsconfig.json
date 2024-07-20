@@ -16,7 +16,7 @@
         // For absolute import
         "baseUrl": ".",
         "paths": {
-            "*": [
+            "@/*": [
                 "./src/*"
             ]
         },
