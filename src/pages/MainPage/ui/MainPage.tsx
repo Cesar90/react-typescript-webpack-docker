@@ -3,14 +3,20 @@ import { ListBox } from '@/shared/ui/Popups/components/ListBox';
 import { HStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { Counter } from '@/entities/counter';
+import { StarRating } from '@/shared/ui/StarRating';
+import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {
     const { t } = useTranslation();
     return (
         <Page>
             {t('Main page')}
+            <RatingCard
+                title="This is title"
+                feedbackTitle="This is feedback title"
+                hasFeedback
+            />
             <Counter />
-            <div>adasdasdf</div>
             <HStack>
                 <div>adasdasdf</div>
                 <ListBox
@@ -24,9 +30,6 @@ const MainPage = () => {
                     ]}
                 />
             </HStack>
-            <div>adasdasdf</div>
-            <div>adasdasdf</div>
-            <div>adasdasdf</div>
         </Page>
     );
 };

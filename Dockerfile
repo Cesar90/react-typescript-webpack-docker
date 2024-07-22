@@ -14,7 +14,10 @@ WORKDIR /app
 COPY --from=installer /app /app
 COPY . .
 EXPOSE 3000
-CMD ["npm", "run", "start"]
+# For Webpack
+# CMD ["npm", "run", "start"]
+# For Vite
+CMD ["npm", "run", "start:vite"]
 
 
 # Install dependencies only when needed
