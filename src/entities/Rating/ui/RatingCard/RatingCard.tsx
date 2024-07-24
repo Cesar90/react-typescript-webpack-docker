@@ -17,6 +17,7 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
@@ -27,9 +28,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
         hasFeedback,
         onCancel,
         title,
+        rate = 0,
     } = props;
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const [starsCount, setStarsCount] = useState<number>(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState<string>('');
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -65,52 +67,54 @@ export const RatingCard = memo((props: RatingCardProps) => {
     return (
         <Card
             className={classNames('', {}, [className])}
+            max
         >
-            <VStack align="center" gap="8">
-                <Text title={title} />
+            <VStack align="center" gap="8" max>
+                <Text title={starsCount ? 'Rating!!' : title} />
                 <StarRating
+                    selectedStars={starsCount}
                     size={40}
                     onSelect={onSelectStars}
                 />
-                <BrowserView>
-                    <Modal isOpen={isModalOpen} lazy>
-                        <VStack max gap="32">
-                            {modalContent}
-                            <HStack max gap="16" justify="end">
-                                <Button
-                                    onClick={cancelHandle}
-                                    theme={ThemeButton.OUTLINE_RED}
-                                >
-                                    Cancel Feedback
-                                </Button>
-                                <Button
-                                    onClick={acceptHandle}
-                                >
-                                    Send Feedback
-                                </Button>
-                            </HStack>
-                        </VStack>
-                    </Modal>
-                </BrowserView>
-                <MobileView>
-                    <Drawer
-                        isOpen={isModalOpen}
-                        lazy
-                        onClose={cancelHandle}
-                    >
-                        <VStack gap="32">
-                            {modalContent}
+            </VStack>
+            <BrowserView>
+                <Modal isOpen={isModalOpen} lazy>
+                    <VStack max gap="32">
+                        {modalContent}
+                        <HStack max gap="16" justify="end">
                             <Button
-                                fullWidth
+                                onClick={cancelHandle}
+                                theme={ThemeButton.OUTLINE_RED}
+                            >
+                                Cancel Feedback
+                            </Button>
+                            <Button
                                 onClick={acceptHandle}
-                                size={ButtonSize.L}
                             >
                                 Send Feedback
                             </Button>
-                        </VStack>
-                    </Drawer>
-                </MobileView>
-            </VStack>
+                        </HStack>
+                    </VStack>
+                </Modal>
+            </BrowserView>
+            <MobileView>
+                <Drawer
+                    isOpen={isModalOpen}
+                    lazy
+                    onClose={cancelHandle}
+                >
+                    <VStack gap="32">
+                        {modalContent}
+                        <Button
+                            fullWidth
+                            onClick={acceptHandle}
+                            size={ButtonSize.L}
+                        >
+                            Send Feedback
+                        </Button>
+                    </VStack>
+                </Drawer>
+            </MobileView>
         </Card>
     );
 });
