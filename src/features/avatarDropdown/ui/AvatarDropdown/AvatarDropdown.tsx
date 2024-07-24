@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Popups/components/Dropdown/ui/Dropdown';
@@ -15,7 +15,7 @@ interface AvatarDropdownProps {
     className?: string;
 }
 
-export const AvatarDropdown = (props: AvatarDropdownProps) => {
+export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const { className } = props;
     const dispatch = useDispatch();
     const authData = useSelector(getUserAuthData);
@@ -53,4 +53,4 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
             trigger={<Avatar size={30} src={authData.avatar} />}
         />
     );
-};
+});

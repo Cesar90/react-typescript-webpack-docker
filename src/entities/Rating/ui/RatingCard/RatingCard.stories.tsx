@@ -1,21 +1,17 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
-import { ThemeSwitcher } from './ThemeSwitcher';
+import { RatingCard } from './RatingCard';
 
 export default {
-    title: 'widgets/ThemeSwitcher',
-    component: ThemeSwitcher,
+    title: 'entities/Rating/RatingCard',
+    component: RatingCard,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {
-        to: '/',
-    },
-} as ComponentMeta<typeof ThemeSwitcher>;
+} as ComponentMeta<typeof RatingCard>;
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <ThemeSwitcher {...args} />;
+const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

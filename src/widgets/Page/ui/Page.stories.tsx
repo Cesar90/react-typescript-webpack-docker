@@ -1,21 +1,17 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
-import { ThemeSwitcher } from './ThemeSwitcher';
+import { Page } from './Page';
 
 export default {
-    title: 'widgets/ThemeSwitcher',
-    component: ThemeSwitcher,
+    title: 'widgets/Page',
+    component: Page,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {
-        to: '/',
-    },
-} as ComponentMeta<typeof ThemeSwitcher>;
+} as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <ThemeSwitcher {...args} />;
+const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
