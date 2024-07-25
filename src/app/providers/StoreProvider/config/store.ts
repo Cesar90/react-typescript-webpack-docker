@@ -9,7 +9,7 @@ import { $api } from '@/shared/api/api';
 import { articleDetailsReducer } from '@/entities/Articles';
 import { uiReducer } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
+import { profileReducer } from '@/features/editableProfileCard';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
