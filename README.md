@@ -68,3 +68,8 @@ Copy node_modules folder from container to host with docker command
 ```bash
 docker cp webpack-docker-frontend-1:/app/node_modules/ ./
 ```
+
+## Automatically removes the resources not associated with a container
+```bash
+docker system prune -a 
+```
