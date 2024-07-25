@@ -15,7 +15,7 @@ module.exports = {
     sourceType: 'module',
   },
   //plugins: ['react', '@typescript-eslint', 'i18next'],
-  plugins: ['react', '@typescript-eslint', 'react-hooks', 'ulbi-tv-plugin'],
+  plugins: ['react', '@typescript-eslint', 'react-hooks', 'catch-up-app-plugin'],
   rules: {
     'react/jsx-indent': [2, 4],
     'react/jsx-indent-props': [2, 4],
@@ -52,7 +52,8 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'arrow-body-style': 'off',
-    "ulbi-tv-plugin/path-checker": 'error',
+    // "ulbi-tv-plugin/path-checker": 'error',
+    "catch-up-app-plugin/path-checker": ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,

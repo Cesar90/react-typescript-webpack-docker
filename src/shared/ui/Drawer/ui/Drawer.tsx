@@ -3,8 +3,7 @@ import {
 } from 'react';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Portal } from '@/shared/ui/Portal/Portal';
-import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+import { Portal } from '../../Portal/Portal';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../../Overlay';
 import cls from './Drawer.module.scss';
