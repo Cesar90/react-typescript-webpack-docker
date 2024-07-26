@@ -1,10 +1,10 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { articleDetailsReducer } from '@/entities/Articles';
-import { loginReducer } from '@/features/AuthByUsername';
-import { addCommentFormReducer } from '@/features/addCommentForm';
-import { profileReducer } from '@/features/editableProfileCard';
-import { articleDetailPageReducer } from '@/pages/ArticleDetailsPage';
+import { articleDetailsReducer } from '@/entities/Articles/testing';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { addCommentFormReducer } from '@/features/addCommentForm/testing';
+import { profileReducer } from '@/features/editableProfileCard/testing';
+// import { articleDetailPageReducer } from '@/pages/ArticleDetailsPage';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 // const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
@@ -13,7 +13,7 @@ const defaultAsyncReducers: ReducersList = {
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
-    articleDetailsPage: articleDetailPageReducer,
+    // articleDetailsPage: articleDetailPageReducer,
 };
 
 export const StoreDecorator = (

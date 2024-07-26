@@ -1,6 +1,4 @@
-import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import {
     getArticleDetailsData,
     getArticleDetailsError,

@@ -54,10 +54,20 @@ module.exports = {
     'arrow-body-style': 'off',
     // "ulbi-tv-plugin/path-checker": 'error',
     "catch-up-app-plugin/path-checker": ['error', { alias: '@' }],
-    "catch-up-app-plugin/public-api-imports": ['error', {
-      alias: '@',
-      testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
-    }],
+    'catch-up-app-plugin/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
+    ],
+    'catch-up-app-plugin/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

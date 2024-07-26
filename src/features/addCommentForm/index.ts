@@ -1,4 +1,3 @@
-export { addCommentFormReducer } from './model/slices/addCommentFormSlice';
 export { addCommentFormSlice } from './model/slices/addCommentFormSlice';
 export {
     AddCommentFormAsync as AddCommentForm,
