@@ -11,7 +11,12 @@ interface UserModalProps {
     isOpen?: boolean;
     animationDelay: number;
 }
-
+/**
+ * Reusable hook for modal components (drawer/modal)
+ * @param onClose
+ * @param isOpen
+ * @param animationDelay
+ */
 export function useModal({
     onClose,
     isOpen,
