@@ -1,7 +1,5 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import {
-    List, ListRowProps, WindowScroller,
-} from 'react-virtualized';
+import { ListRowProps } from 'react-virtualized';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text';
 import { TextSize } from '@/shared/ui/Text/ui/Text';

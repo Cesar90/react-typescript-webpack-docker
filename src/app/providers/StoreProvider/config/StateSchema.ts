@@ -1,4 +1,3 @@
-import { NavigateOptions, To } from 'react-router-dom';
 import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -9,9 +8,7 @@ import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { ArticleDetailsSchema } from '@/entities/Articles';
 import {
-    ArticleDetailsCommentsSchema,
     ArticleDetailsPageShema,
-    articleDetailsRecommendationSchema,
 } from '@/pages/ArticleDetailsPage';
 import { AddCommentFormShema } from '@/features/addCommentForm';
 import { ArticlesPageShema } from '@/pages/ArticlesPage';

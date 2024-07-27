@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { StateSchema } from '../config/StateSchema';

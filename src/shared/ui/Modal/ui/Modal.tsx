@@ -1,10 +1,5 @@
 import React, {
-    MutableRefObject,
     ReactNode,
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
 } from 'react';
 import { Mods, classNames } from '../../../lib/classNames/classNames';
 import { useTheme } from '../../../lib/hooks/useTheme/useTheme';

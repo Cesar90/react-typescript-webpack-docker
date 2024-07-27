@@ -2,7 +2,7 @@ import {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
 import { useTheme } from '../../../lib/hooks/useTheme/useTheme';
-import { classNames, Mods } from '../../../lib/classNames/classNames';
+import { classNames } from '../../../lib/classNames/classNames';
 import { Portal } from '../../Portal/Portal';
 import { AnimationProvider, useAnimationLibs } from '../../../lib/components/AnimationProvider';
 import { Overlay } from '../../Overlay';

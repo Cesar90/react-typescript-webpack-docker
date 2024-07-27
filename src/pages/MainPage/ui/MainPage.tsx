@@ -3,7 +3,6 @@ import { ListBox } from '@/shared/ui/Popups/components/ListBox';
 import { HStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { Counter } from '@/entities/counter';
-import { StarRating } from '@/shared/ui/StarRating';
 import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {

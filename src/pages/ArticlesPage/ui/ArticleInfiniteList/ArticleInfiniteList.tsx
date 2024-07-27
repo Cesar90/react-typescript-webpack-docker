@@ -1,10 +1,6 @@
-import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ArticleList } from '@/entities/Articles';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text } from '@/shared/ui/Text';
-import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 import { getArticles } from '../../model/slices/articlePageSlice';
 import {
     getArticlePageError,
