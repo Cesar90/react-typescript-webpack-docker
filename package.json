@@ -27,7 +27,8 @@
     "json-server": "json-server --watch ./json-server/db.json --port 8000 --host 0.0.0.0",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "ts-morph:run": "npx ts-node ./scripts/updateImports.ts"
+    "ts-morph:run": "npx ts-node ./scripts/updateImports.ts",
+    "postinstall": "node ./scripts/clear-cache.js"
   },
   "keywords": [],
   "author": "",

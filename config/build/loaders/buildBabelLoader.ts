@@ -6,6 +6,7 @@ interface BuildBabelLoaderProps extends BuildOptions {
 }
 
 export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
+    const isProd = !isDev;
     return {
         // test: /\.(js|jsx|tsx)$/,
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
@@ -13,15 +14,16 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
         use: {
             loader: 'babel-loader',
             options: {
+                cacheDirectory: true,
                 presets: ['@babel/preset-env'],
                 plugins: [
-                    [
-                        'i18next-extract',
-                        {
-                            locales: ['en', 'ru'],
-                            keyAsDefaultValue: true,
-                        },
-                    ],
+                    // [
+                    //     'i18next-extract',
+                    //     {
+                    //         locales: ['en', 'ru'],
+                    //         keyAsDefaultValue: true,
+                    //     },
+                    // ],
                     [
                         '@babel/plugin-transform-typescript',
                         {
@@ -29,7 +31,7 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
                         },
                     ],
                     '@babel/plugin-transform-runtime',
-                    isTsx && [
+                    isTsx && isProd && [
                         babelRemovedPropsPlugin,
                         {
                             props: ['data-testid'],
