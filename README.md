@@ -54,7 +54,12 @@ docker-compose run -p 8000:8000 --rm frontend sh -c "npm run start:dev:server"
 
 #### Run ts-morph to change path of import with @
 ```bash
- docker-compose run --rm frontend sh -c "npx ts-node ./scripts/updateImports.ts"
+ docker-compose run --rm frontend sh -c "npx ts-node ./scripts/refactoring/updateImports.ts"
+```
+
+#### Run Create Public Api For Shared Ui
+```bash
+ docker-compose run --rm frontend sh -c "npx ts-node ./scripts/refactoring/createPublicApiForSharedUi.ts"
 ```
 
 ## Typescript
