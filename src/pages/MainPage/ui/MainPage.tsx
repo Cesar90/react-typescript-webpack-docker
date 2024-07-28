@@ -8,7 +8,9 @@ import { RatingCard } from '@/entities/Rating';
 const MainPage = () => {
     const { t } = useTranslation();
     return (
-        <Page>
+        <Page
+            data-testid="MainPage"
+        >
             {t('Main page')}
             <RatingCard
                 title="This is title"
