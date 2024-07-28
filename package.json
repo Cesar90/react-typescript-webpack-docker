@@ -30,9 +30,9 @@
     "ts-morph:run": "npx ts-node ./scripts/updateImports.ts",
     "postinstall": "node ./scripts/clear-cache.js"
   },
-  "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
-  },
+  "//": "'lint-staged': {",
+  "//": "'**/*.{ts,tsx}': 'eslint'",
+  "//": "},",
   "keywords": [],
   "author": "",
   "license": "ISC",
